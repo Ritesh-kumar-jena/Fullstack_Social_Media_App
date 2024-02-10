@@ -15,7 +15,9 @@ app.use(cors())
 app.use(cookieParser())
 
 app.get('/',(req,res)=>{
-    res.status(200).send("WEllcome to the app")
+    res.setHeader("content-type","text/html")
+    res.write(`<h1>WEllcome to the app</h1>`)
+    res.status(200).send()
 })
 
 app.use('/users',userRouts)
