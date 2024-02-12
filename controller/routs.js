@@ -37,7 +37,7 @@ userRouts.post('/login',async(req,res)=>{
             res.cookie('token',token,{httpOnly:true,maxAge:60*60*1000})
             const reftoken=jwt.sign({userID:user._id,userName:user.name},"school",{expiresIn:"1h"})
             res.cookie('reftoken',reftoken,{httpOnly:true,maxAge:7*24*60*60*1000})
-            res.send({msg:"login successfull"})
+            res.send({msg:"login successfull",token:token})
           }else{
             res.send({msg:"wrong password"})
           }
