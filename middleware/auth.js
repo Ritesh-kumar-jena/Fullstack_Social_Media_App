@@ -10,7 +10,7 @@ const auth=async(req,res,next)=>{
        try {
         const block=await Blacklisting.findOne({token})
         if(block){
-         req.send({msg:"login first"})
+         res.send({msg:"login first"})
         }
         else{
          jwt.verify(token,"masai",(err,decoded)=>{
